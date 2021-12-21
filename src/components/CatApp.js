@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react'
 const CatApp = () => {
     const [cats, setCats] = useState([])
     const [limit, setLimit] = useState(3)
-    const [totalPages, setTotalPages] = useState(0)
+    const [totalPages, setTotalPages] = useState(1)
     const [page, setPage] = useState(1)
-    const [pagination, setPagination] = useState([1,2,3,4,5,6,7,8])
+    const [pagination, setPagination] = useState([1,2,3,4])
 
     const handleInputChange = (e) => {
         const limit = e.target.value
@@ -32,21 +32,24 @@ const CatApp = () => {
         }
     }
 
-    const changePagination = (current) => {
-        if(current > 1 && current <= totalPages){            
+    const changePagination = (current) => {        
+        if(current >= 1 && current <= totalPages){            
             const items = pagination
             const prev = items[0]
             const next = items[items.length - 1]
-    
+            const prevItems = items
+
             switch(current){
                 case prev:
-                    items.forEach((e, i) => {
-                        items[i] = e - 1
+                    items.forEach((e, i) => {                        
+                        if(current === 1) return setPagination([...prevItems])
+                        return items[i] = e - 1
                     })
                     break
-                case next:
+                case next:                    
                     items.forEach((e, i) => {                        
-                        items[i] = e + 1
+                        if(current === totalPages) return setPagination([...prevItems])
+                        return items[i] = e + 1
                     })
                     break
                 default:
