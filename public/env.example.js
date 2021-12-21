@@ -10,7 +10,7 @@ window.env = {
   "LESS": "-R",
   "NVM_BIN": "/home/zergio/.nvm/versions/node/v14.17.3/bin",
   "TERM_PROGRAM_VERSION": "1.63.2",
-  "VSCODE_IPC_HOOK_CLI": "/tmp/vscode-ipc-13b600c5-6bd4-433d-b26a-d10911260873.sock",
+  "VSCODE_IPC_HOOK_CLI": "/tmp/vscode-ipc-2702185a-2195-4a4c-8ead-6b8ad5a83e5e.sock",
   "npm_package_json": "/home/zergio/Projects/cat-api/package.json",
   "ZSH": "/home/zergio/.oh-my-zsh",
   "LSCOLORS": "Gxfxcxdxbxegedabagacad",
@@ -54,6 +54,5 @@ window.env = {
   "HOSTTYPE": "x86_64",
   "WSLENV": "VSCODE_WSL_EXT_LOCATION/up",
   "INIT_CWD": "/home/zergio/Projects/cat-api",
-  "EDITOR": "vi",
-  "REACT_APP_CAT_KEY": "e3b69a35-62cd-44b8-81f2-de8223425bcc"
+  "EDITOR": "vi"
 };

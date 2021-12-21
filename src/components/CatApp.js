@@ -5,7 +5,7 @@ const CatApp = () => {
     const [limit, setLimit] = useState(3)
     const [totalPages, setTotalPages] = useState(0)
     const [page, setPage] = useState(1)
-    const [pagination, setPagination] = useState([1,2,3])
+    const [pagination, setPagination] = useState([1,2,3,4,5,6,7,8])
 
     const handleInputChange = (e) => {
         const limit = e.target.value
@@ -33,25 +33,23 @@ const CatApp = () => {
     }
 
     const changePagination = (current) => {
-        if(current > 1 && current <= totalPages){
+        if(current > 1 && current <= totalPages){            
             const items = pagination
-            const paginationLength = items.length - 1
             const prev = items[0]
-            const middle = items[1]
             const next = items[items.length - 1]
     
             switch(current){
                 case prev:
-                    items[1] = prev
-                    items[0] = prev - 1
-                    items[paginationLength] = middle
+                    items.forEach((e, i) => {
+                        items[i] = e - 1
+                    })
                     break
                 case next:
-                    items[1] = next
-                    items[0] = middle
-                    items[paginationLength] = next + 1
+                    items.forEach((e, i) => {                        
+                        items[i] = e + 1
+                    })
                     break
-                default:                
+                default:
                     break
             }
             
@@ -94,10 +92,10 @@ const CatApp = () => {
                 }
                 <footer>
                     {
-                        pagination.map((e, i) => {
+                        pagination.map((element, index) => {
                             return (
-                                <button key={i} onClick={() => changePagination(e)}>
-                                    {e}
+                                <button key={index} onClick={() => changePagination(element)}>
+                                    {element}
                                 </button>
                             )
                         })
