@@ -10,7 +10,7 @@ window.env = {
   "LESS": "-R",
   "NVM_BIN": "/home/zergio/.nvm/versions/node/v14.17.3/bin",
   "TERM_PROGRAM_VERSION": "1.63.2",
-  "VSCODE_IPC_HOOK_CLI": "/tmp/vscode-ipc-50cf588e-8d95-4264-85fe-d47ac49afd02.sock",
+  "VSCODE_IPC_HOOK_CLI": "/tmp/vscode-ipc-13b600c5-6bd4-433d-b26a-d10911260873.sock",
   "npm_package_json": "/home/zergio/Projects/cat-api/package.json",
   "ZSH": "/home/zergio/.oh-my-zsh",
   "LSCOLORS": "Gxfxcxdxbxegedabagacad",

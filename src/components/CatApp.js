@@ -3,16 +3,16 @@ import React, { useEffect, useState } from 'react'
 const CatApp = () => {
     const [cats, setCats] = useState([])
     const [limit, setLimit] = useState(3)
-    const [pages, setPages] = useState(1)
+    const [totalPages, setTotalPages] = useState(0)
+    const [page, setPage] = useState(1)
     const [pagination, setPagination] = useState([1,2,3])
 
     const handleInputChange = (e) => {
         const limit = e.target.value
         setLimit(limit)
-    }    
+    }
 
-    const getCats = async (limit = 3, page = 1) => {
-        console.log(page)
+    const getCats = async (limit = 3, page) => {
         const url = `https://api.thecatapi.com/v1/images/search?limit=${limit}&page=${page}&order=Desc`
         const options = {
             method: 'GET',
@@ -24,7 +24,7 @@ const CatApp = () => {
         try{
             const response = await fetch(url, options)
             const paginationLength = Number(response.headers.get('pagination-count'))
-            setPages(Math.floor(paginationLength / limit))            
+            setTotalPages(Math.floor(paginationLength / limit))            
             const cats = await response.json()
             setCats(cats)
         }catch(err){
@@ -33,37 +33,37 @@ const CatApp = () => {
     }
 
     const changePagination = (current) => {
-        if(current > 1 && current < pages){
-            const listPagination = pagination
-            const paginationLength = listPagination.length - 1
-            const prev = listPagination[0]
-            const middle = listPagination[1]
-            const next = listPagination[listPagination.length - 1]
+        if(current > 1 && current <= totalPages){
+            const items = pagination
+            const paginationLength = items.length - 1
+            const prev = items[0]
+            const middle = items[1]
+            const next = items[items.length - 1]
     
             switch(current){
                 case prev:
-                    listPagination[1] = prev
-                    listPagination[0] = prev - 1
-                    listPagination[paginationLength] = middle
-                    break
-                case middle:
+                    items[1] = prev
+                    items[0] = prev - 1
+                    items[paginationLength] = middle
                     break
                 case next:
-                    listPagination[1] = next
-                    listPagination[0] = middle
-                    listPagination[paginationLength] = next + 1
+                    items[1] = next
+                    items[0] = middle
+                    items[paginationLength] = next + 1
                     break
                 default:                
                     break
             }
-    
-            return setPagination([...listPagination])
+            
+            setPage(current)
+            setPagination([...items])
+            return
         }
     }
     
     useEffect(() => {
-        getCats(limit)
-    }, [limit])
+        getCats(limit, page)
+    }, [limit, page])
 
     return (
         <div>
