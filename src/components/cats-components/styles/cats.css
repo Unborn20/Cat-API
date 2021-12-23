@@ -1,0 +1,13 @@
+.filters{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10em;
+}
+
+.input-filter{
+    border: 2px solid rgb(37, 190, 218);
+    border-radius: 5px;
+    font-size: medium;
+    height: 2em;
+    width: 8em;
+}

@@ -1,20 +1,26 @@
 import React, { useEffect, useState } from 'react'
-import usePagination from '../hooks/usePagination'
-import ListCats from './lists-cats/ListCats'
-import Pagination from './pagination/Pagination'
+import usePagination from '../../hooks/usePagination'
+import ListCats from './ListCats'
+import Pagination from '../pagination/Pagination'
 
 const CatApp = () => {
     const [cats, setCats] = useState([])
-    const [limit, setLimit] = useState(3)    
-    const [page, pagination, changePagination, setTotalPages] = usePagination([1,2,3,4])
+    const [limit, setLimit] = useState(3)
+    const [order, setOrder] = useState('Desc')
+    const [page, pagination, changePagination, setTotalPages] = usePagination([1,2,3,4,5,6,7])
 
-    const handleInputChange = (e) => {
+    const handleInputLimit = (e) => {
         const limit = e.target.value
         setLimit(limit)
     }
 
-    const getCats = async (limit = 3, page) => {
-        const url = `https://api.thecatapi.com/v1/images/search?limit=${limit}&page=${page}&order=Desc`
+    const handleInputOrder = (e) => {
+        const order = e.target.value
+        setOrder(order)
+    }
+
+    const getCats = async (limit = 3, page, order = 'Desc') => {
+        const url = `https://api.thecatapi.com/v1/images/search?limit=${limit}&page=${page}&order=${order}`
         const options = {
             method: 'GET',
             headers: {
@@ -34,8 +40,8 @@ const CatApp = () => {
     }
     
     useEffect(() => {
-        getCats(limit, page)
-    }, [limit, page])
+        getCats(limit, page, order)
+    }, [limit, page, order])
 
     return (
         <>
@@ -43,8 +49,8 @@ const CatApp = () => {
                 Cat List
             </h1>
             <main>
-                <form>
-                    <select id="limit" onChange={handleInputChange}>
+                <form className="filters">
+                    <select id="limit" className="input-filter m-2 text-center" onChange={handleInputLimit}>
                         <option value={3}>
                             3
                         </option>
@@ -55,10 +61,7 @@ const CatApp = () => {
                             9
                         </option>
                     </select>
-                    <select id="order" onChange={handleInputChange}>
-                        <option value={'Asc'}>
-                            Ascendent
-                        </option>
+                    <select id="order" className="input-filter m-2" onChange={handleInputOrder}>
                         <option value={'Desc'}>
                             Descendent
                         </option>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import CatApp from '../components/CatApp'
+import CatApp from '../components/cats-components/CatApp'
 
 const CatAppRouter = () => {
     return (
