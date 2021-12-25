@@ -5,7 +5,7 @@ const Pagination = ({ controlPagination }) => {
     const {pagination, changePagination} = controlPagination
 
     return (
-        <footer className="justify-center mt-5">
+        <footer className="pagination-center mt-5">
             {
                 pagination.map((element, index) => {
                     return (

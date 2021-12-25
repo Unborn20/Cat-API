@@ -12,6 +12,23 @@ code {
     monospace;
 }
 
+/*
+ * Colors
+ */
+ .light-blue{
+  color: rgb(43, 177, 201);
+}
+
+/*
+ * Font Sizes
+ */
+.f-5{
+  font-size: 4em;
+}
+
+/*
+ * Margin Scales
+ */
 .m-2{
   margin: 0.6rem;
 }
@@ -24,12 +41,18 @@ code {
   margin: 2rem;
 }
 
+/*
+ * Flex Container
+ */
 .container{
   display: flex;
   justify-content: center;
   width: 100vw;
 }
 
+/*
+ * Grid Container
+ */
 .items-container{
   display: grid;
   justify-items: center;
@@ -37,6 +60,9 @@ code {
   gap: 15px;
 }
 
+/*
+ * Text Position
+ */
 .text-center{
   text-align: center;
 }

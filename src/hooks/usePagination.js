@@ -1,34 +1,39 @@
-import {useState} from 'react'
+import { useState } from 'react'
 
 const usePagination = (initialState = [1,2,3,4]) => {
     const [page, setPage] = useState(1)
+    const [prev, setPrev] = useState(1)
     const [totalPages, setTotalPages] = useState(1)
     const [pagination, setPagination] = useState(initialState)
 
-    const changePagination = (current) => {        
+    const changePagination = (current) => {
         if(current >= 1 && current <= totalPages){            
             const items = pagination
-            const prev = items[0]
-            const next = items[items.length - 1]
-            const prevItems = items
+            const lengtPagination = items.length - 1
 
-            switch(current){
-                case prev:
-                    items.forEach((e, i) => {                        
-                        if(current === 1) return setPagination([...prevItems])
-                        return items[i] = e - 1
-                    })
-                    break
-                case next:                    
-                    items.forEach((e, i) => {                        
-                        if(current === totalPages) return setPagination([...prevItems])
-                        return items[i] = e + 1
-                    })
-                    break
-                default:
-                    break
+            if(prev > current){
+                items.forEach((e, i) => {                    
+                    return items[i] = e - 1
+                })
             }
             
+            if(items.includes(0)){
+                items.shift()
+                items.push(items[lengtPagination - 1] + 1)
+            }
+            
+            if(prev < current){
+                items.forEach((e, i) => {
+                    return items[i] = e + 1
+                })
+            }
+
+            if(items.includes(totalPages + 1)){
+                items.pop()
+                items.unshift(items[0] - 1)
+            }
+
+            setPrev(current)
             setPage(current)
             setPagination([...items])
             return

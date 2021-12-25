@@ -1,4 +1,4 @@
-.justify-center{
+.pagination-center{
     display: flex;
     justify-content: center;    
 }
@@ -8,7 +8,7 @@
     border: 2px solid rgb(37, 190, 218);
     border-radius: 5px;
     box-shadow: none;
-    font-size: medium;
+    color: rgb(29, 141, 161);
     height: 2em;
     margin: 0.3rem;
     width: 4em;
