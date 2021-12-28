@@ -26,6 +26,10 @@ code {
   font-size: 4em;
 }
 
+.f-3{
+  font-size: 1.5em;
+}
+
 /*
  * Margin Scales
  */
@@ -65,4 +69,12 @@ code {
  */
 .text-center{
   text-align: center;
+}
+
+.none-decoration{
+  text-decoration: none;
+}
+
+.shadow-bottom{
+  box-shadow: 4px 4px 10px #ccc;
 }

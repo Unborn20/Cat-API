@@ -12,22 +12,28 @@ const usePagination = (initialState = [1,2,3,4]) => {
             const lengtPagination = items.length - 1
 
             if(prev > current){
-                items.forEach((e, i) => {                    
+                items.forEach((e, i) => {
                     return items[i] = e - 1
                 })
             }
-            
-            if(items.includes(0)){
-                items.shift()
-                items.push(items[lengtPagination - 1] + 1)
-            }
-            
+                        
             if(prev < current){
                 items.forEach((e, i) => {
                     return items[i] = e + 1
                 })
             }
+            
+            /** 
+             * Limit start 
+             */
+            if(items.includes(0)){
+                items.shift()
+                items.push(items[lengtPagination - 1] + 1)
+            }
 
+            /** 
+             * Limit end 
+             */
             if(items.includes(totalPages + 1)){
                 items.pop()
                 items.unshift(items[0] - 1)
@@ -43,6 +49,7 @@ const usePagination = (initialState = [1,2,3,4]) => {
     return [
         page,
         pagination,
+        prev,
         changePagination,
         setTotalPages
     ]

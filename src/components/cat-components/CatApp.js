@@ -10,7 +10,13 @@ const CatApp = () => {
     const [cats, setCats] = useState([])
     const [limit, setLimit] = useState(3)
     const [order, setOrder] = useState('Desc')
-    const [page, pagination, changePagination, setTotalPages] = usePagination([1,2,3,4,5,6,7])
+    const [
+        page,
+        pagination,
+        prev,
+        changePagination,
+        setTotalPages
+    ] = usePagination([1,2,3,4,5,6,7])
 
     const setFilter = useCallback((limit, order) => {
         setLimit(limit)
@@ -40,10 +46,10 @@ const CatApp = () => {
             <h1 className="text-center light-blue f-5">
                 Cat List 😸
             </h1>
-            <main>
+            <main >
                 <CatFilters limit={limit} order={order} filters={setFilter}/>
                 <CatsList cats={cats} />
-                <Pagination controlPagination={{pagination, changePagination}} />
+                <Pagination controlPagination={{pagination, changePagination, prev}} />
             </main>
         </>
     )

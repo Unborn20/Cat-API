@@ -14,6 +14,17 @@
     width: 4em;
 }
 
+.button-selected{
+    background: rgb(37, 190, 218);
+    border: 2px solid rgb(30, 139, 158);
+    border-radius: 5px;
+    box-shadow: none;
+    color: rgb(246, 249, 250);
+    height: 2em;
+    margin: 0.3rem;
+    width: 4em;
+}
+
 .buttons-pagination:hover{
     background: rgb(238, 237, 237);
     border: 2px solid rgb(28, 163, 187);
