@@ -1,16 +1,12 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import CatApp from '../components/CatApp'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import CatApp from '../components/cat-components/CatApp'
+import Navbar from '../components/partials/Navbar'
 
 const CatAppRouter = () => {
     return (
         <BrowserRouter>
-            <nav>
-                <h1>
-                    Cat-Api
-                </h1>
-                <Link to="/">Main</Link>
-            </nav>
+            <Navbar />
             <Routes>
                 <Route path="/" element={<CatApp/>} />
             </Routes>

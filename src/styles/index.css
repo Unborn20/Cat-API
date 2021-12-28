@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/*
+ * Colors
+ */
+ .light-blue{
+  color: rgb(43, 177, 201);
+}
+
+/*
+ * Font Sizes
+ */
+.f-5{
+  font-size: 4em;
+}
+
+.f-3{
+  font-size: 1.5em;
+}
+
+/*
+ * Margin Scales
+ */
+.m-2{
+  margin: 0.6rem;
+}
+
+.m-3{
+  margin: 1rem;
+}
+
+.mt-5{
+  margin: 2rem;
+}
+
+/*
+ * Flex Container
+ */
+.container{
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+/*
+ * Grid Container
+ */
+.items-container{
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+/*
+ * Text Position
+ */
+.text-center{
+  text-align: center;
+}
+
+.none-decoration{
+  text-decoration: none;
+}
+
+.shadow-bottom{
+  box-shadow: 4px 4px 10px #ccc;
+}
