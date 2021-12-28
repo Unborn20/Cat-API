@@ -1,14 +1,15 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import CatApp from '../components/cat-components/CatApp'
+import CatMain from '../components/cat-components/CatMain'
 import Navbar from '../components/partials/Navbar'
-
+import CatsByBreed from '../components/cat-components/CatsByBreed'
 const CatAppRouter = () => {
     return (
         <BrowserRouter>
-            <Navbar />
+            <Navbar/>
             <Routes>
-                <Route path="/" element={<CatApp/>} />
+                <Route path="/" element={<CatMain/>} />
+                <Route path="/breed" element={<CatsByBreed/>} />
             </Routes>
         </BrowserRouter>
     )

@@ -5,7 +5,7 @@ import CatFilters from './CatFilters'
 import CatsList from './CatsList'
 import Pagination from '../pagination/Pagination'
 
-const CatApp = () => {
+const CatMain = () => {
 
     const [cats, setCats] = useState([])
     const [limit, setLimit] = useState(3)
@@ -55,4 +55,4 @@ const CatApp = () => {
     )
 }
 
-export default CatApp
+export default CatMain
