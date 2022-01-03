@@ -6,7 +6,6 @@ import CatsList from './CatsList'
 import Pagination from '../pagination/Pagination'
 
 const CatMain = () => {
-
     const [cats, setCats] = useState([])
     const [limit, setLimit] = useState(3)
     const [order, setOrder] = useState('Desc')
@@ -23,13 +22,11 @@ const CatMain = () => {
         setOrder(order)
     }, [setLimit, setOrder])
 
-    const getCats = useCallback((limit, page, order) => {
-        (async () => {
-            setCats([])
-            const [cats, totalPages] = await fetchCats(limit, page, order)
-            setCats(cats)
-            setTotalPages(totalPages)
-        })()
+    const getCats = useCallback(async (limit, page, order) => {        
+        setCats([])
+        const [cats, totalPages] = await fetchCats(limit, page, order)
+        setCats(cats)
+        setTotalPages(totalPages)        
     }, [setCats, setTotalPages])
 
     useEffect(() => {

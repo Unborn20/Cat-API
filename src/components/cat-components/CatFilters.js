@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { useForm } from '../../hooks/useForm'
 
-const CatFilters = React.memo(({ limit, order, filters }) => {
-    
+const CatFilters = React.memo(({ limit, order, filters }) => {    
     const [values, handleInputChange] = useForm({
         limit,
         order
