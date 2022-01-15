@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import usePagination from '../../hooks/usePagination'
-import fetchCats from '../../requests/fetchCats'
-import CatFilters from './CatFilters'
+import usePagination from '../../../hooks/usePagination'
+import fetchCats from '../../../requests/fetchCats'
+import CatFilters from './CatFiltersOrder'
 import CatsList from './CatsList'
-import Pagination from '../pagination/Pagination'
+import Pagination from '../../pagination/Pagination'
 
 const CatMain = () => {
     const [cats, setCats] = useState([])

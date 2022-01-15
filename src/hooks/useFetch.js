@@ -25,7 +25,7 @@ const useFetch = (url, options) => {
             if(isMounted){
                 const response = await fetch(url, {
                     method,
-                    header
+                    header                    
                 })
                 const data = await response.json()
                 setState({

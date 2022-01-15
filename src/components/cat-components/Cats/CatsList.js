@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles/cats.css'
+import '../styles/cats.css'
 
 const CatsList = (props) => {
     const { cats } = props
