@@ -24,3 +24,7 @@ yarn-error.log*
 
 /.env
 /public/env.js
+
+# lockfiles
+yarn.lock
+package-lock.json
