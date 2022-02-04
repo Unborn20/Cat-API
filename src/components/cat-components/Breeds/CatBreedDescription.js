@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import useFetch from '../../../hooks/useFetch'
 import Rate from '../../rating/Rate'
 
@@ -14,7 +14,7 @@ const CatBreedDescription = ({ breed }) => {
 
     const { loading, data } = useFetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${breed}&limit=1`, options)
     useEffect(() => {
-        if(data !== null){
+        if (data !== null) {
             setDetail(data[0].breeds[0])
         }
         return () => {
@@ -26,10 +26,11 @@ const CatBreedDescription = ({ breed }) => {
         <>
             {loading
                 ?
-                    <p>Loading...</p>
+                <p>Loading...</p>
                 :
-                    <>
-                        <p>
+                <>
+                    <article className="wrapper">
+                        <p className="w-25">
                             {
                                 detail.description
                             }
@@ -42,8 +43,22 @@ const CatBreedDescription = ({ breed }) => {
                         <a href={detail.wikipedia_url} target='_blank' rel='noreferrer'>
                             Wikipedia Page
                         </a>
-                        <Rate rating={3}/>
-                    </>
+                    </article>
+                    <section className="container">
+                        <div className="self__container">
+                            <p>Adaptability: <Rate rating={detail?.adaptability} /></p>
+                            <p>Affection Level: <Rate rating={detail?.affection_level} /></p>
+                            <p>Bidability: <Rate rating={detail?.bidability} /></p>
+                            <p>Cat Friendly: <Rate rating={detail?.cat_friendly} /></p>
+                            <p>Child Friendly: <Rate rating={detail?.child_friendly} /></p>
+                            <p>Dog Friendly: <Rate rating={detail?.dog_friendly} /></p>
+                            <p>Energy Level: <Rate rating={detail?.energy_level} /></p>
+                            <p>Health Issues: <Rate rating={detail?.health_issues} /></p>
+                            <p>Hypoallergenic: <Rate rating={detail?.hypoallergenic} /></p>
+                            <p>Intelligence: <Rate rating={detail?.intelligence} /></p>
+                        </div>
+                    </section>
+                </>
             }
         </>
     )

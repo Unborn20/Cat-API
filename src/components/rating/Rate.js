@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar as fasFaStar } from '@fortawesome/free-solid-svg-icons'
-import { faStar as farFaStar } from '@fortawesome/free-regular-svg-icons'
+import { EmptyStar, FillStar } from '../../icons'
 
 const Rate = ({ rating }) => {
     const [rates, setRates] = useState([]);
@@ -20,8 +18,8 @@ const Rate = ({ rating }) => {
     return (
         <>
             {rates.map((e, i) => {
-                if (e) return <FontAwesomeIcon key={i} icon={fasFaStar} />
-                return <FontAwesomeIcon key={i} icon={farFaStar} />
+                if (e) return <FillStar key={i} style={{width: '18px', heigth: '18px'}}/>
+                return <EmptyStar key={i} style={{width: '18px', heigth: '18px'}} />
             })
             }
         </>
