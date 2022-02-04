@@ -45,6 +45,17 @@ code {
   margin: 2rem;
 }
 
+/**
+ * Width Size
+ */
+.w-25{
+  width: 25vw !important;
+}
+
+.w-35{
+  width: 35vw !important;
+}
+
 /*
  * Flex Container
  */

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import useFetch from '../../../hooks/useFetch'
+import Rate from '../../rating/Rate'
 
 const CatBreedDescription = ({ breed }) => {
     const [detail, setDetail] = useState({})
@@ -41,6 +42,7 @@ const CatBreedDescription = ({ breed }) => {
                         <a href={detail.wikipedia_url} target='_blank' rel='noreferrer'>
                             Wikipedia Page
                         </a>
+                        <Rate rating={3}/>
                     </>
             }
         </>

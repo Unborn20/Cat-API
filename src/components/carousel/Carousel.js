@@ -1,57 +1,42 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React from 'react'
+import useCarousel from '../../hooks/useCarousel'
+import './styles/carousel.css'
 
-const CatImagesCarousel = ({ children }) => {
-    const [images, setImages] = useState([])
-    const [current, setCurrent] = useState(0)
-
-    const handlePrev = () => {
-        if(current - 1 < 0) return setCurrent(images.length - 1)
-        return setCurrent(current - 1)
-    }
-
-    const handleNext = () => {
-        if(current + 1 > images.length - 1) return setCurrent(0)
-        return setCurrent(current + 1)
-    }
-
-    const getImages = useCallback(() => {
-        const images = children.map(({props}) => props)
-        setImages(images)
-    }, [children])
-    
-    useEffect(() => {
-        getImages()
-        return () => {
-            setImages([])
-            setCurrent(0)
-        }
-    }, [getImages])
-
-    useEffect(() => {
-        return
-    }, [current])
+const Carousel = ({ children }) => {
+    const [
+        current,
+        images,
+        handlePrev,
+        handleNext
+    ] = useCarousel(children)
 
     return (
-        <>
-            {!(images.length < 2) &&
-                <>
-                    <button onClick={handlePrev}>
-                        Prev
-                    </button>
-                    <button onClick={handleNext}>
-                        Next
-                    </button>
-                </>
-            }
-            <img
-                src={images[current]?.src}
-                alt={images[current]?.alt}
-                width={200}
-                height={100}
-                draggable={false}
-            />
-        </>
+        <main className="container">
+            <section className='container w-35'>
+                {!(images.length < 2) &&                    
+                    <div className="button-container">
+                        <button onClick={handlePrev}>
+                            Prev
+                        </button>                    
+                    </div>                    
+                }
+                <img
+                    src={images[current]?.src}
+                    alt={images[current]?.alt}
+                    width={400}
+                    height={300}
+                    draggable={false}
+                />
+                {!(images.length < 2) &&                    
+                    <div className="button-container">                    
+                        <button onClick={handleNext}>
+                            Next
+                        </button> 
+                    </div>                    
+                }
+            </section>
+        </main>
     )
 }
 
-export default CatImagesCarousel
+export default Carousel

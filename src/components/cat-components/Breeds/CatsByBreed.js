@@ -3,6 +3,7 @@ import useFetch from '../../../hooks/useFetch'
 import CatBreedDescription from './CatBreedDescription'
 import CatFiltersBreed from './CatFiltersBreed'
 import Carousel from '../../carousel/Carousel'
+import './styles/breed.css'
 
 const CatsByBreed = () => {
     const [breed, setBreed] = useState('beng')
@@ -16,7 +17,7 @@ const CatsByBreed = () => {
             'x-api-key': window.env.REACT_APP_CAT_KEY
         })
     }
-    const { loading, data } = useFetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${breed}&limit=8`, options)
+    const { loading, data } = useFetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${breed}&limit=8`, options)  
 
     useEffect(() => {
         if(data) {
@@ -30,7 +31,7 @@ const CatsByBreed = () => {
         <>
             <h1 className="text-center light-blue f-5">
                 Cats By Breed 😸
-            </h1>
+            </h1>            
             <CatFiltersBreed breed={breed} filters={setFilter} />
             {loading
                 ?
