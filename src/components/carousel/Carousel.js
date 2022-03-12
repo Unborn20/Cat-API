@@ -13,22 +13,21 @@ const Carousel = ({ children }) => {
     return (
         <main className="container">
             <section className='container w-35'>
-                {!(images.length < 2) &&                    
-                    <div className="button-container">
+                {!(images.length < 2) &&
+                    <div className="button-container button__left">
                         <button onClick={handlePrev}>
                             Prev
-                        </button>                    
-                    </div>                    
+                        </button>      
+                    </div>               
                 }
                 <img
                     src={images[current]?.src}
                     alt={images[current]?.alt}
-                    width={400}
                     height={300}
                     draggable={false}
                 />
                 {!(images.length < 2) &&                    
-                    <div className="button-container">                    
+                    <div className="button-container button__right">
                         <button onClick={handleNext}>
                             Next
                         </button> 

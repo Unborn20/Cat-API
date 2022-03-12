@@ -31,7 +31,7 @@ const CatsByBreed = () => {
         <>
             <h1 className="text-center light-blue f-5">
                 Cats By Breed 😸
-            </h1>            
+            </h1>
             <CatFiltersBreed breed={breed} filters={setFilter} />
             {loading
                 ?

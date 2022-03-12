@@ -1,4 +1,25 @@
+section{
+    position: relative;
+}
+
+section img{
+    object-fit: cover;
+    width: 100%;
+}
+
 .button-container{
-    align-items: center;
     display: flex;
+    align-items: center;
+    height: 100%;
+    position: absolute;
+}
+
+.button__left{
+    top: 0;
+    left: 0;
+}
+
+.button__right{
+    top: 0;
+    right: 0;
 }
